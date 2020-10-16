@@ -5,6 +5,7 @@ type Options = {
 	fontFormat: string;
 	fontSize: number;
 	windowControl: string;
+	maxWidth: number;
 };
 export const generateHTML = (code: string, css: string, options: Options) => `\
 <!DOCTYPE html>
@@ -24,13 +25,13 @@ export const generateHTML = (code: string, css: string, options: Options) => `\
                 padding-bottom: 15px;
             }
             pre {
-                font-size: 15px;
+                font-size: 18px;
                 font-family: CustomFont, FiraCode;
-                white-space: pre-wrap;
-                text-align: left;
+                white-space: pre;
                 margin-left: 30px;
-                width: min-content;
-                line-height: 1.7em;
+                line-height: 1.5em;
+                position: relative;
+                width: ${options.maxWidth + 25}ch;
             }
             ${css}
         </style>

@@ -16,20 +16,23 @@ export default async (
 	options: Options = {}
 ): Promise<Buffer | Readable> => {
 	const fontPath = await validateFontPath(options.fontPath);
+	const maxWidth = code
+		.split("\n")
+		.reduce((max, cur) => (max > cur.length ? max : cur.length), 0);
 	const templateOption = {
 		fontSize: options.fontSize ?? defaultValues.fontSize,
 		windowControl: getWindowControls(options.windowControl),
 		borderColor: options.borderColor ?? defaultValues.borderColor,
 		borderSize: options.borderSize ?? defaultValues.borderSize,
 		fontFormat: extname(fontPath).slice(1),
-		fontPath
+		fontPath,
+		maxWidth
 	};
 	const highlightedCode = highlightCode(code, options.language);
 	const css = options.theme
 		? Themes[options.theme]
 		: Themes[defaultValues.theme];
 	const returnType = options.type;
-
 	const html = generateHTML(highlightedCode, css, templateOption);
 	writeFileSync("output.html", html);
 	const image = generate(html);
