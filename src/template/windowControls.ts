@@ -3,8 +3,6 @@
  * https://github.com/carbon-app/carbon/blob/main/LICENSE
  */
 
-import { Options } from "../types/types";
-
 const Controls = `
 <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
     <g fill="none" fillRule="evenodd" transform="translate(1 1)">
@@ -25,12 +23,12 @@ const ControlsBW = `
 
 const ControlsBoxy = `
 <svg width="58" height="14" viewBox="0 0 58 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 7H11" stroke="#878787" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M47 12L57 2" stroke="#878787" strokeLinecap="round" strokeLinejoin="round" />
     <path
         d="M35 1H25C24.4477 1 24 1.44772 24 2V12C24 12.5523 24.4477 13 25 13H35C35.5523 13 36 12.5523 36 12V2C36 1.44772 35.5523 1 35 1Z"
         stroke="#878787" />
     <path d="M47 2L57 12" stroke="#878787" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M47 12L57 2" stroke="#878787" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M1 7H11" stroke="#878787" strokeLinecap="round" strokeLinejoin="round" />
 </svg>`;
 
 const WindowControls = [Controls, ControlsBW, ControlsBoxy];
