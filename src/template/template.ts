@@ -12,22 +12,25 @@ export const generateHTML = (code: string, css: string, options: Options) => `\
     <head>
         <style>
             @font-face {
-                font-family: "CustomFont";
+                font-family: CustomFont;
                 src: url("${options.fontPath}") format("${options.fontFormat}");
             }
             @font-face {
-                font-family: "FiraCode";
+                font-family: FiraCode;
                 src: url("${options.fontPath}") format("woff2"); 
             }
             body {
-                border: ${options.borderSize}px solid ${options.borderColor};
+                border: ${options.borderSize}rem solid ${options.borderColor};
+                padding-bottom: 15px;
             }
             pre {
-                font-size: 20px;
+                font-size: 15px;
                 font-family: CustomFont, FiraCode;
-                white-space: pre-line;
+                white-space: pre-wrap;
                 text-align: left;
                 margin-left: 30px;
+                width: min-content;
+                line-height: 1.7em;
             }
             ${css}
         </style>
@@ -37,9 +40,7 @@ export const generateHTML = (code: string, css: string, options: Options) => `\
             ${options.windowControl}
         </div>
         <code>
-            <pre class="hljs-text">
-                ${code}
-            </pre>
+            <pre class="hljs-text">${code}</pre>
         </code>
     </body>
 </html>`;
