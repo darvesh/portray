@@ -3,12 +3,12 @@ import { resolve } from "path";
 
 type ignore = "type" | "language";
 export const defaultValues: Required<Omit<Options, ignore>> = {
-	fontPath: resolve("./resources/FiraCode.ttf"),
+	fontPath: resolve("./resources/Firacode.ttf"),
 	windowControl: 1,
 	fontSize: 15,
 	theme: "material",
-	borderColor: "yello",
-	borderSize: 15
+	borderColor: "yellow",
+	borderSize: 1
 };
 
 export const keywordTypes = [
