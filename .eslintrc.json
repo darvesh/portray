@@ -1,0 +1,33 @@
+{
+	"env": {
+		"es2020": true,
+		"node": true
+	},
+	"root": true,
+	"extends": [
+		"eslint:recommended",
+		"prettier",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking",
+		"prettier/@typescript-eslint",
+		"plugin:prettier/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 2020,
+		"sourceType": "module",
+		"project": [
+			"./tsconfig.json"
+		]
+	},
+	"plugins": [
+		"@typescript-eslint"
+	],
+	"rules": {
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+		"@typescript-eslint/no-unsafe-member-access": "off",
+		"no-irregular-whitespace": "off",
+		"@typescript-eslint/no-floating-promises": "off"
+	}
+}
