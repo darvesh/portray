@@ -33,6 +33,9 @@ export const generateHTML = (code: string, css: string, options: Options) => `\
         </style>
     </head>
     <body class="hljs-background">
+        <div style="padding-left: 15px; padding-top: 15px;">
+            ${options.windowControl}
+        </div>
         <code>
             <pre class="hljs-text">
                 ${code}
