@@ -8,7 +8,7 @@ import { getWindowControls } from "./template/windowControls";
 import { Options } from "./types/types";
 import { generate } from "wkhtmltoimage";
 import { accumulateBuffer } from "./helper";
-import { Themes } from "./etc/css";
+import { Themes } from "./template/cssTheme";
 import { writeFileSync } from "fs";
 
 export default async (
