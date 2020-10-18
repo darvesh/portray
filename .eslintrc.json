@@ -24,10 +24,5 @@
 	"plugins": [
 		"@typescript-eslint"
 	],
-	"rules": {
-		"@typescript-eslint/explicit-module-boundary-types": "off",
-		"@typescript-eslint/no-unsafe-member-access": "off",
-		"no-irregular-whitespace": "off",
-		"@typescript-eslint/no-floating-promises": "off"
-	}
+	"rules": {}
 }
