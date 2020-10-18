@@ -41,5 +41,5 @@ const reduce = async <T, U>(
 	list: AsyncIterable<U>
 ): Promise<T> => reduceHelper(init, reducer, list[Symbol.asyncIterator]());
 
-export const accumulateBuffer = (x: AsyncIterable<Buffer>) =>
+export const accumulateBuffer = (x: AsyncIterable<Buffer>): Promise<Buffer> =>
 	reduce(Buffer.from([]), (a, b) => Buffer.concat([a, b]), x);

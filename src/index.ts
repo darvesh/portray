@@ -2,14 +2,12 @@ import type { Readable } from "stream";
 
 import { extname } from "path";
 import { defaultValues } from "./constant";
-import { highlightCode, validateFontPath } from "./helper";
+import { highlightCode, validateFontPath, accumulateBuffer } from "./helper";
 import { generateHTML } from "./template/template";
 import { getWindowControls } from "./template/windowControls";
 import { Options } from "./types/types";
 import { generate } from "wkhtmltoimage";
-import { accumulateBuffer } from "./helper";
 import { Themes } from "./template/cssTheme";
-import { writeFileSync } from "fs";
 
 export default async (
 	code: string,
@@ -34,7 +32,6 @@ export default async (
 		: Themes[defaultValues.theme];
 	const returnType = options.type;
 	const html = generateHTML(highlightedCode, css, templateOption);
-	writeFileSync("output.html", html);
 	const image = generate(html);
 	return returnType === "stream" ? image : accumulateBuffer(image);
 };
