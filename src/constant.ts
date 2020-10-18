@@ -4,7 +4,7 @@ import { resolve } from "path";
 type ignore = "type" | "language";
 export const defaultValues: Required<Omit<Options, ignore>> = {
 	fontPath: resolve("./resources/Firacode.ttf"),
-	windowControl: 1,
+	windowControl: 0,
 	fontSize: 15,
 	theme: "material",
 	borderColor: "yellow",
