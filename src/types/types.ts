@@ -1,5 +1,7 @@
 import { Themes } from "../template/cssTheme";
 
+
+export type SupportedImageFormat = typeof supportedImageFormat[number];
 export interface Options {
 	fontSize?: number;
 	fontPath?: string;
@@ -9,6 +11,7 @@ export interface Options {
 	borderColor?: string;
 	borderSize?: number;
 	language?: string;
+	format?: SupportedImageFormat;
 }
 
 export type ThemesType = keyof typeof Themes;

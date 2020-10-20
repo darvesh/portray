@@ -1,6 +1,7 @@
+import type { SupportedImageFormat } from "./types/types";
 import highlight from "highlight.js";
 import { isAbsolute } from "path";
-import { defaultValues } from "./constant";
+import { defaultValues, supportedImageFormat } from "./constant";
 import { promises as fsPromise, constants } from "fs";
 
 export const highlightCode = (code: string, language?: string): string => {
@@ -39,3 +40,12 @@ const reduce = async <T, U>(
 
 export const accumulateBuffer = (x: AsyncIterable<Buffer>): Promise<Buffer> =>
 	reduce(Buffer.from([]), (a, b) => Buffer.concat([a, b]), x);
+
+export const getImageFormat = (
+	value?: SupportedImageFormat
+): typeof supportedImageFormat[number] => {
+	if (!value) return defaultValues.format;
+	return supportedImageFormat.some(ext => ext === value)
+		? value
+		: defaultValues.format;
+};

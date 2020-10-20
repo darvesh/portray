@@ -2,12 +2,17 @@ import type { Readable } from "stream";
 
 import { extname } from "path";
 import { defaultValues } from "./constant";
-import { highlightCode, validateFontPath, accumulateBuffer } from "./helper";
 import { generateHTML } from "./template/template";
 import { getWindowControls } from "./template/windowControls";
 import { Options } from "./types/types";
 import { generateImage } from "./generateImage";
 import { Themes } from "./template/cssTheme";
+import {
+	highlightCode,
+	validateFontPath,
+	accumulateBuffer,
+	getImageFormat
+} from "./helper";
 
 export default async (
 	code: string,
@@ -16,7 +21,7 @@ export default async (
 	const fontPath = await validateFontPath(options.fontPath);
 	const maxWidth = code
 		.split("\n")
-		.reduce((max, cur) => (max > cur.length ? max : cur.length), 0);
+	const imageFormat = getImageFormat(options.format);
 	const templateOption = {
 		fontSize: options.fontSize ?? defaultValues.fontSize,
 		windowControl: getWindowControls(options.windowControl),

@@ -7,8 +7,7 @@ export const defaultValues: Required<Omit<Options, ignore>> = {
 	windowControl: 0,
 	fontSize: 15,
 	theme: "material",
-	borderColor: "yellow",
-	borderSize: 1
+	format: "png"
 };
 
 export const keywordTypes = [
@@ -28,3 +27,5 @@ export const keywordTypes = [
 	"tag",
 	"variable3"
 ];
+
+export const supportedImageFormat = <const>["jpeg", "png"];

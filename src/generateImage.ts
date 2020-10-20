@@ -1,12 +1,12 @@
 import { spawn } from "child_process";
-import { Readable, Writable } from "stream";
+import type { SupportedImageFormat } from "./types/types";
 
 type Options = {
 	quality: number;
 	disableJavascript: boolean;
 	javascriptDelay: number;
 	disableLocalFileAccess: boolean;
-	quiet: boolean;
+	format: SupportedImageFormat;
 };
 
 export const addPrefix = (key: string): string => `--${key}`;
