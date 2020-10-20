@@ -3,10 +3,6 @@ import { isAbsolute } from "path";
 import { defaultValues } from "./constant";
 import { promises as fsPromise, constants } from "fs";
 
-highlight.configure({
-	useBR: true
-});
-
 export const highlightCode = (code: string, language?: string): string => {
 	if (language) {
 		return highlight.highlight(language, code).value;
