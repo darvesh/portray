@@ -1,5 +1,7 @@
+import { supportedImageFormat } from "../constant";
 import { Themes } from "../template/cssTheme";
 
+export type ThemesType = keyof typeof Themes;
 
 export type SupportedImageFormat = typeof supportedImageFormat[number];
 export interface Options {
@@ -13,5 +15,3 @@ export interface Options {
 	language?: string;
 	format?: SupportedImageFormat;
 }
-
-export type ThemesType = keyof typeof Themes;

@@ -5,9 +5,7 @@ import { defaultValues, supportedImageFormat } from "./constant";
 import { promises as fsPromise, constants } from "fs";
 
 export const highlightCode = (code: string, language?: string): string => {
-	if (language) {
-		return highlight.highlight(language, code).value;
-	}
+	if (language) return highlight.highlight(language, code).value;
 	return highlight.highlightAuto(code).value;
 };
 

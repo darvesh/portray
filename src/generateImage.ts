@@ -1,5 +1,6 @@
-import { spawn } from "child_process";
+import type { Readable } from "stream";
 import type { SupportedImageFormat } from "./types/types";
+import { spawn } from "child_process";
 
 type Options = {
 	quality: number;
@@ -25,9 +26,9 @@ export const cleanValue = (value: string | number | boolean): string =>
 
 export const serializeOptions = (options: Partial<Options>): Array<string> => {
 	return Object.entries(options)
-		.reduce<Array<string>>((flags, [oKey, oValue = ""]) => {
-			const prop = addPrefix(cleanKey(oKey).trim());
-			const value = cleanValue(oValue).trim();
+		.reduce<Array<string>>((flags, [key, kValue = ""]) => {
+			const prop = addPrefix(cleanKey(key).trim());
+			const value = cleanValue(kValue).trim();
 			return [...flags, prop, value];
 		}, [])
 		.filter(Boolean);

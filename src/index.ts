@@ -21,6 +21,7 @@ export default async (
 	const fontPath = await validateFontPath(options.fontPath);
 	const maxWidth = code
 		.split("\n")
+		.reduce((max, line) => (max > line.length ? max : line.length), 0);
 	const imageFormat = getImageFormat(options.format);
 	const templateOption = {
 		fontSize: options.fontSize ?? defaultValues.fontSize,
@@ -32,11 +33,8 @@ export default async (
 		maxWidth
 	};
 	const highlightedCode = highlightCode(code, options.language);
-	const css = options.theme
-		? Themes[options.theme]
-		: Themes[defaultValues.theme];
-	const returnType = options.type;
+	const css = Themes[options.theme ?? defaultValues.theme];
 	const html = generateHTML(highlightedCode, css, templateOption);
-	const image = generateImage(html, {});
-	return returnType === "stream" ? image : accumulateBuffer(image);
+	const image = generateImage(html, { format: imageFormat });
+	return options.type === "stream" ? image : accumulateBuffer(image);
 };
