@@ -7,7 +7,11 @@ type Options = {
 	windowControl: string;
 	maxWidth: number;
 };
-export const generateHTML = (code: string, css: string, options: Options) => `\
+export const generateHTML = (
+	code: string,
+	css: string,
+	options: Options
+): string => `\
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +26,7 @@ export const generateHTML = (code: string, css: string, options: Options) => `\
             }
             body {
                 border: ${options.borderSize}rem solid ${options.borderColor};
-                padding-bottom: 15px;
+                margin: 0;
             }
             pre {
                 font-size: 18px;
