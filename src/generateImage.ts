@@ -1,11 +1,12 @@
 import { spawn } from "child_process";
-import { Readable } from "stream";
+import { Readable, Writable } from "stream";
 
 type Options = {
 	quality: number;
 	disableJavascript: boolean;
 	javascriptDelay: number;
 	disableLocalFileAccess: boolean;
+	quiet: boolean;
 };
 
 export const addPrefix = (key: string): string => `--${key}`;
@@ -18,7 +19,7 @@ export const cleanKey = (value: string): string =>
 export const cleanValue = (value: string | number | boolean): string =>
 	typeof value === "string"
 		? `"${value.replace(/(["\\$`])/g, "\\$1")}"`
-		: typeof value === "number"
+		: typeof value === "number" && !Number.isNaN(value)
 		? String(value)
 		: "";
 
@@ -37,12 +38,13 @@ export const generateImage = (
 	options: Partial<Options>
 ): Readable => {
 	const imageOptions = serializeOptions(options);
-	const inputValue = `"${input}"`;
-	if (process.platform === "win32")
-		return spawn("wkhtmltoimage", [...imageOptions, inputValue]).stdout;
-
-	return spawn("/bin/sh", [
-		"-c",
-		"wkhtmltoimage".concat([...imageOptions, inputValue].join(" "))
-	]).stdout;
+	const child =
+		process.platform == "win32"
+			? spawn("wkhtmltoimage", imageOptions)
+			: spawn("/bin/sh", [
+					"-c",
+					["wkhtmltoimage", ...imageOptions, "- -"].join(" ")
+			  ]);
+	child.stdin.end(input);
+	return child.stdout;
 };
