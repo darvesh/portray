@@ -6,7 +6,7 @@ import { highlightCode, validateFontPath, accumulateBuffer } from "./helper";
 import { generateHTML } from "./template/template";
 import { getWindowControls } from "./template/windowControls";
 import { Options } from "./types/types";
-import { generate } from "wkhtmltoimage";
+import { generateImage } from "./generateImage";
 import { Themes } from "./template/cssTheme";
 
 export default async (
@@ -32,6 +32,6 @@ export default async (
 		: Themes[defaultValues.theme];
 	const returnType = options.type;
 	const html = generateHTML(highlightedCode, css, templateOption);
-	const image = generate(html);
+	const image = generateImage(html, {});
 	return returnType === "stream" ? image : accumulateBuffer(image);
 };
