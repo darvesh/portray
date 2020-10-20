@@ -27,6 +27,7 @@ export const generateHTML = (
             body {
                 border: ${options.borderSize}rem solid ${options.borderColor};
                 margin: 0;
+                padding: 1em;
             }
             pre {
                 font-size: 18px;
@@ -34,14 +35,13 @@ export const generateHTML = (
                 white-space: pre;
                 margin-left: 30px;
                 line-height: 1.5em;
-                position: relative;
                 width: ${options.maxWidth + 25}ch;
             }
             ${css}
         </style>
     </head>
     <body class="hljs-background">
-        <div style="padding-left: 15px; padding-top: 15px;">
+        <div>
             ${options.windowControl}
         </div>
         <code>
