@@ -14,7 +14,7 @@ import {
 	getImageFormat
 } from "./helper";
 
-export default async (
+export const generate = async (
 	code: string,
 	options: Options = {}
 ): Promise<Buffer | Readable> => {
