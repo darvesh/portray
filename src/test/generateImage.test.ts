@@ -1,10 +1,4 @@
-import chai, { expect } from "chai";
-import { validateFontPath } from "../helper";
-import chaiAsPromised from "chai-as-promised";
-
-chai.use(chaiAsPromised);
-const assert = chai.assert;
-
+import { expect } from "chai";
 import { cleanKey, addPrefix, serializeOptions } from "../generateImage";
 
 describe("wkhtmltoimage wrapper", () => {
