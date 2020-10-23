@@ -5,13 +5,8 @@ type Options = {
 	fontFormat: string;
 	fontSize: number;
 	windowControl: string;
-	maxWidth: number;
 };
-export const generateHTML = (
-	code: string,
-	css: string,
-	options: Options
-): string => `\
+export const generateHTML = (code: string, css: string, options: Options): string => `\
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,30 +20,39 @@ export const generateHTML = (
                 src: url("${options.fontPath}") format("truetype"); 
             }
             body {
-                border: ${options.borderSize}rem solid ${options.borderColor};
+                border: ${options.borderSize}px solid ${options.borderColor};
                 margin: 0;
                 padding: 1em;
-                display: inline-block;
+                text-rendering: optimizeLegibility
+                position: absolute;
+            }
+             .container{
+                margin: auto;
+                padding:0;
+                border-radius: 5px;
+                box-shadow: rgba(0, 0, 0, 0.55) 0px 20px 68px;
+                padding: 1em;
             }
             
             pre {
                 font-size: ${options.fontSize}px;
                 font-family: CustomFont, FiraCode;
                 margin-left: 30px;
-                
                 line-height: 1.5em;
-                /* width: ${options.maxWidth + 15}ch;*/
                 white-space: pre;
+                width: 100%;
             }
             ${css}
         </style>
     </head>
-    <body class="hljs-background">
-        <div>
-            ${options.windowControl}
+    <body style="background:#ABB8C3;">
+        <div class="container hljs-background">
+            <div style="padding:10px;">
+                ${options.windowControl}
+            </div>
+            <code>
+                <pre class="hljs-text">${code}</pre>
+            </code>
         </div>
-        <code>
-            <pre class="hljs-text">${code}</pre>
-        </code>
     </body>
 </html>`;
