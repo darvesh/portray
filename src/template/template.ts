@@ -22,20 +22,23 @@ export const generateHTML = (
             }
             @font-face {
                 font-family: FiraCode;
-                src: url("${options.fontPath}") format("woff2"); 
+                src: url("${options.fontPath}") format("truetype"); 
             }
             body {
                 border: ${options.borderSize}rem solid ${options.borderColor};
                 margin: 0;
                 padding: 1em;
+                display: inline-block;
             }
+            
             pre {
-                font-size: 18px;
+                font-size: ${options.fontSize}px;
                 font-family: CustomFont, FiraCode;
-                white-space: pre;
                 margin-left: 30px;
+                
                 line-height: 1.5em;
-                width: ${options.maxWidth + 25}ch;
+                /* width: ${options.maxWidth + 15}ch;*/
+                white-space: pre;
             }
             ${css}
         </style>
