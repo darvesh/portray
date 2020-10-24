@@ -47,3 +47,15 @@ export const getImageFormat = (
 		? value
 		: defaultValues.format;
 };
+
+export const findMaxLineWidth = (content: string): number => {
+	const lineWidth = (str: string): number => {
+		const tabs = str.split("\t").length;
+		return str.length + tabs * 4;
+	};
+	return content.split("\n").reduce((acc, line) => {
+		const width = lineWidth(line);
+		if (acc < width) return width;
+		return acc;
+	}, 0);
+};

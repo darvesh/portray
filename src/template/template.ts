@@ -5,12 +5,13 @@ type Options = {
 	fontFormat: string;
 	fontSize: number;
 	windowControl: string;
+	maxWidth: number;
 };
 export const generateHTML = (
 	code: string,
 	css: string,
 	options: Options
-): string => `\
+): string => `
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,62 +24,50 @@ export const generateHTML = (
                 font-family: FiraCode;
                 src: url("${options.fontPath}") format("truetype"); 
             }
-            * {
-              margin: 0;
-              padding: 0;  
-            }
             body {
-                background: #bbb;
-                margin: 0;
                 padding: 0;
+                margin: 0;
                 display: inline-block;
+              
             }
             .container {
+                background: ${options.borderColor};
+                margin: 0;
+                padding: 0;
+                display: inherit;
+            }
+            .preview {
                 margin: ${options.borderSize}px;
                 border-radius: 5px;
                 box-shadow: rgba(0, 0, 0, 0.55) 0px 20px 68px;
-                padding: 1rem 1.5rem;
-                background: ${options.borderColor};
+                padding: 1rem;
+            }
+            .preview div {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
             }
             pre {
-                font-size: 20px;
                 font-family: CustomFont, FiraCode, monospace;
-                line-height: 1.5rem;
-                white-space: pre;
-            }
-
-            /*body {
-                border:  solid 
-                padding: 0;
-                margin: 0;
-                text-rendering: optimizeLegibility;
-            }
-             .container{
-                box-shadow: rgba(0, 0, 0, 0.55) 0px 20px 68px;
-                padding: 1em;
-                border-radius: 10px;
-                display:flex;
-                flex-direction: column;
-                flex-basis: content;
-            }
-            pre {
-                font-size: ${options.fontSize}px;
-                font-family: CustomFont, FiraCode;
-                margin-left: 30px;
                 line-height: 1.5em;
-                white-space: pre;
-            }*/
+                white-space: pre-wrap;
+                width: ${options.maxWidth}ch;
+                max-width: 130ch;
+                padding-left: 0.5rem;
+            }
             ${css}
         </style>
     </head>
-   <body>
-	    <div class="container hljs-background">
+    <body>
+	    <div class="container">
+            <div class="preview hljs-background">
                 <div>
                     ${options.windowControl}
                 </div>
                 <code>
-                    <pre class="hljs-text">${code}</pre>
+                    <pre style="font-size: ${options.fontSize}px;" class="hljs-text">${code}</pre>
                 </code>
-	    </div>
+            </div>
+        </div>
     </body>
 </html>`;

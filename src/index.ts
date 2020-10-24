@@ -11,7 +11,8 @@ import {
 	highlightCode,
 	validateFontPath,
 	accumulateBuffer,
-	getImageFormat
+	getImageFormat,
+	findMaxLineWidth
 } from "./helper";
 
 export const generate = async (
@@ -19,16 +20,16 @@ export const generate = async (
 	options: Options = {}
 ): Promise<Buffer | Readable> => {
 	const fontPath = await validateFontPath(options.fontPath);
-	const maxWidth = code
-		.split("\n")
-		.reduce((max, line) => (max > line.length ? max : line.length), 0);
 	const imageFormat = getImageFormat(options.format);
+	const fontFormat = extname(fontPath).slice(1);
 	const templateOption = {
-		fontSize: options.fontSize ?? defaultValues.fontSize,
+		fontSize: defaultValues.fontSize,
 		windowControl: getWindowControls(options.windowControl),
 		borderColor: options.borderColor ?? defaultValues.borderColor,
 		borderSize: options.borderSize ?? defaultValues.borderSize,
 		fontFormat: fontFormat === "ttf" ? "truetype" : fontFormat,
+		maxWidth: findMaxLineWidth(code) + 2,
+		fontPath
 	};
 	const highlightedCode = highlightCode(code, options.language);
 	const css = Themes[options.theme ?? defaultValues.theme];
