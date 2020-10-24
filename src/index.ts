@@ -28,13 +28,11 @@ export const generate = async (
 		windowControl: getWindowControls(options.windowControl),
 		borderColor: options.borderColor ?? defaultValues.borderColor,
 		borderSize: options.borderSize ?? defaultValues.borderSize,
-		fontFormat: extname(fontPath).slice(1),
-		fontPath,
-		maxWidth
+		fontFormat: fontFormat === "ttf" ? "truetype" : fontFormat,
 	};
 	const highlightedCode = highlightCode(code, options.language);
 	const css = Themes[options.theme ?? defaultValues.theme];
 	const html = generateHTML(highlightedCode, css, templateOption);
-	const image = generateImage(html, { format: imageFormat });
+	const image = generateImage(html, { format: imageFormat, quality: 100 });
 	return options.type === "stream" ? image : accumulateBuffer(image);
 };
