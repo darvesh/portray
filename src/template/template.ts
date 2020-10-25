@@ -1,3 +1,5 @@
+import { resolve } from "path";
+
 type Options = {
 	fontPath: string;
 	borderColor: string;
@@ -22,7 +24,9 @@ export const generateHTML = (
             }
             @font-face {
                 font-family: FiraCode;
-                src: url("${options.fontPath}") format("truetype"); 
+                src: url("${resolve(
+					__dirname + "/../resources/Firacode.ttf"
+				)}") format("truetype"); 
             }
             body {
                 padding: 0;
@@ -68,7 +72,9 @@ export const generateHTML = (
                     ${options.windowControl}
                 </div>
                 <code>
-                    <pre style="font-size: ${options.fontSize}px;" class="hljs-text">${code}</pre>
+                    <pre style="font-size: ${
+						options.fontSize
+					}px;" class="hljs-text">${code}</pre>
                 </code>
             </div>
         </div>
