@@ -1,8 +1,8 @@
 import type { SupportedImageFormat } from "./types/types";
-import highlight from "highlight.js";
 import { isAbsolute } from "path";
-import { defaultValues, supportedImageFormat } from "./constant";
+import highlight from "highlight.js";
 import { promises as fsPromise, constants } from "fs";
+import { defaultValues, supportedImageFormat } from "./constant";
 
 export const highlightCode = (code: string, language?: string): string => {
 	if (language) return highlight.highlight(language, code).value;

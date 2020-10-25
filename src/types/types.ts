@@ -1,5 +1,5 @@
-import { supportedImageFormat } from "../constant";
-import { Themes } from "../template/cssTheme";
+import type { supportedImageFormat } from "../constant";
+import type { Themes } from "../template/cssTheme";
 
 export type ThemesType = keyof typeof Themes;
 
