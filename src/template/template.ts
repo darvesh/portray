@@ -26,9 +26,10 @@ export const generateHTML = (
             }
             body {
                 padding: 0;
-                margin: 0;
                 display: inline-block;
-              
+                /* workaround for wkhtmltoimage adding a weird vertical bar right side */ 
+                margin: 0 0 0 5px;
+                background: ${options.borderColor};
             }
             .container {
                 background: ${options.borderColor};
@@ -53,8 +54,8 @@ export const generateHTML = (
                 white-space: pre-wrap;
                 width: ${options.maxWidth}ch;
                 max-width: 130ch;
-                min-width: 57ch; /*don't change this*/
-                padding-left: 1rem;
+                min-width: 60ch;
+                padding-left: 3ch;
             }
             ${css}
         </style>
