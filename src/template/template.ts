@@ -53,7 +53,8 @@ export const generateHTML = (
                 white-space: pre-wrap;
                 width: ${options.maxWidth}ch;
                 max-width: 130ch;
-                padding-left: 0.5rem;
+                min-width: 57ch; /*don't change this*/
+                padding-left: 1rem;
             }
             ${css}
         </style>
