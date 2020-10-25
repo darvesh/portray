@@ -56,6 +56,7 @@ export const generateHTML = (
                 max-width: 130ch;
                 min-width: 60ch;
                 padding-left: 3ch;
+                word-break: break-all;
             }
             ${css}
         </style>
