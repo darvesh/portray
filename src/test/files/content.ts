@@ -1,6 +1,17 @@
-export const testOnecontent = `exec('"/path/to/test file/test.sh" arg1 arg2');
-// Double quotes are used so that the space in the path is not interpreted as
-// a delimiter of multiple arguments.
+export const testOnecontent = `import React, { useState, useEffect } from 'react';
+function Example() {
+  const [count, setCount] = useState(0);
 
-exec('echo "The \\$HOME variable is $HOME"');
-// The $HOME variable is escaped in the first instance, but not in the second.`;
+  useEffect(() => {    
+    document.title = \`You clicked \${count} times\`;  
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}`;
