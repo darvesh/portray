@@ -54,7 +54,7 @@ export const generateHTML = (
                 white-space: pre-wrap;
                 width: ${options.maxWidth}ch;
                 max-width: 130ch;
-                min-width: 60ch;
+                min-width: 70ch;
                 padding-left: 3ch;
                 word-break: break-all;
             }

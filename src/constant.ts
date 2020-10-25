@@ -10,7 +10,7 @@ export const defaultValues: DefaultValues = {
 	theme: "dracula",
 	borderColor: "#ABB8C3",
 	borderSize: 50,
-	format: "png"
+	format: "jpeg"
 };
 
 export const keywordTypes = <const>[
