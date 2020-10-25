@@ -48,7 +48,7 @@ describe("E2E", () => {
 
 	it("all options", async () => {
 		const originalImage = readFileSync(
-			resolve(__dirname + "/files/allOptions.jpeg")
+			resolve(__dirname + "/files/allOptions.png")
 		);
 		const stream = await generate(testOnecontent, {
 			borderColor: "#90FE13",
