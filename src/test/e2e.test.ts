@@ -5,7 +5,7 @@ import { accumulateBuffer } from "../helper";
 import { generate } from "../index";
 import { testOnecontent } from "./files/content";
 
-describe("E2E", () => {
+describe("E2E: compare images with previously generated images", () => {
 	it("default values", async () => {
 		const originalImage = readFileSync(
 			resolve(__dirname + "/files/default.jpeg")
