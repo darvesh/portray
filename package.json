@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "mocha --reporter spec --require ts-node/register 'src/test/**/*.test.ts'",
+		"test": "mocha -t 1500 --reporter spec --require ts-node/register 'src/test/**/*.test.ts'",
 		"build": "tsc && copyfiles -f ./src/resources/**/* ./build/resources"
 	},
 	"author": "Darvesh",
