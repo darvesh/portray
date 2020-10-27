@@ -32,7 +32,9 @@ export const generate = async (
 		fontPath
 	};
 	const highlightedCode = highlightCode(code, options.language);
-	const css = Themes[options.theme ?? defaultValues.theme];
+	const css = options.theme
+		? Themes[options.theme]
+		: Themes[defaultValues.theme];
 	const html = generateHTML(highlightedCode, css, templateOption);
 	const image = generateImage(html, { format: imageFormat, quality: 100 });
 	return options.type === "stream" ? image : accumulateBuffer(image);
