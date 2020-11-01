@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./logo.png" alt="Portray"/>
+  <img src="./files/logo.png" alt="Portray"/>
 </p>
 
 
@@ -71,13 +71,27 @@ generate(testOnecontent, options)
 
 **`stream?: true`**
 > **Default**: false\
-> Pass `true` to return `Stream.Readable` instead of `Buffer`
+> `true` to return `Stream.Readable` instead of `Buffer`
 
 **`borderColor?: string`**
 > **Default**: `"#ABB8C3"`\
-> **Example Values**: `"yellow"`, `"#000000"`
+> **Example**: `"yellow"`, `"#000000"`
 
+**`borderSize?: number`**
+> **Default**: `25` (in px)
+
+**`language?: string`**
+> **Example**: `"javascript"`, `"rust"`
 
 **`theme?: ThemesType`**
 > **Default**: `"dracula"`\
 > **Refer**: [ThemesType](https://github.com/darvesh/portray/blob/master/src/template/cssTheme.ts)
+
+**`windowControl: 0 | 1 | 2 | 3`**
+> **Default**: 1\
+> 0 if you don't want windowControl 
+<div>
+  1. <img src="./files/windowControl1.png" height="30px" width="60px" alt="1"/> <br/>
+  2. <img src="./files/windowControl2.png" height="30px" width="60px" alt="2"/> <br/>
+  3. <img src="./files/windowControl3.png" height="30px" width="60px" alt="3"/> <br/>
+</div>
