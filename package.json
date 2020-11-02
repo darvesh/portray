@@ -1,11 +1,12 @@
 {
-	"name": "portray",
-	"version": "1.0.0",
-	"description": "",
+	"name": "@darvesh/portray",
+	"version": "0.5.2",
+	"description": "Generate beautiful image from your source code",
 	"main": "index.js",
 	"scripts": {
-		"test": "mocha -t 1500 --reporter spec --require ts-node/register 'src/test/**/*.test.ts'",
-		"build": "tsc && copyfiles -f ./src/resources/**/* ./build/resources"
+		"test": "mocha -t 2000 --reporter spec --require ts-node/register 'src/test/**/*.test.ts'",
+		"build": "tsc && copyfiles -f ./src/resources/**/* ./build/resources",
+		"pre-publish": "npm run build && copyfiles package.json package-lock.json README.md build"
 	},
 	"author": "Darvesh",
 	"license": "MIT",
@@ -37,5 +38,13 @@
 		"trailingComma": "none",
 		"arrowParens": "avoid",
 		"printWidth": 80
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/darvesh/portray.git"
+	},
+	"bugs": {
+		"url": "https://github.com/darvesh/portray/issues"
+	},
+	"homepage": "https://github.com/darvesh/portray#readme"
 }
