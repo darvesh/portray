@@ -41,7 +41,7 @@ export const generateImage = (
 	const imageOptions = serializeOptions(options);
 	const child =
 		process.platform == "win32"
-			? spawn("wkhtmltoimage", imageOptions)
+			? spawn("wkhtmltoimage", [...imageOptions, "- -"])
 			: spawn("/bin/sh", [
 					"-c",
 					["wkhtmltoimage", ...imageOptions, "- -"].join(" ")

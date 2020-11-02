@@ -1,4 +1,5 @@
 import { resolve } from "path";
+import { pathToFileURL } from "url";
 
 type Options = {
 	fontPath: string;
@@ -20,13 +21,15 @@ export const generateHTML = (
         <style>
             @font-face {
                 font-family: CustomFont;
-                src: url("${options.fontPath}") format("${options.fontFormat}");
+                src: url("${pathToFileURL(
+					options.fontPath
+				).toString()}") format("${options.fontFormat}");
             }
             @font-face {
                 font-family: FiraCode;
-                src: url("${resolve(
-					__dirname + "/../resources/Firacode.ttf"
-				)}") format("truetype"); 
+                src: url("${pathToFileURL(
+					resolve(__dirname + "/../resources/Firacode.ttf")
+				).toString()}") format("truetype"); 
             }
             body {
                 padding: 0;
