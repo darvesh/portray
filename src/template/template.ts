@@ -21,15 +21,17 @@ export const generateHTML = (
         <style>
             @font-face {
                 font-family: CustomFont;
-                src: url("${pathToFileURL(
-					options.fontPath
-				).toString()}") format("${options.fontFormat}");
+                src: url("${pathToFileURL(options.fontPath).href}") format("${
+	options.fontFormat
+}");
             }
             @font-face {
                 font-family: FiraCode;
-                src: url("${pathToFileURL(
-					resolve(__dirname + "/../resources/Firacode.ttf")
-				).toString()}") format("truetype"); 
+                src: url("${
+					pathToFileURL(
+						resolve(__dirname + "/../resources/Firacode.ttf")
+					).href
+				}") format("truetype"); 
             }
             body {
                 padding: 0;

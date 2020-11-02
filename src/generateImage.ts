@@ -19,7 +19,7 @@ export const cleanKey = (value: string): string =>
 
 export const cleanValue = (value: string | number | boolean): string =>
 	typeof value === "string"
-		? `"${value.replace(/(["\\$`])/g, "\\$1")}"`
+		? `${value.replace(/(["\\$`])/g, "\\$1")}`
 		: typeof value === "number" && !Number.isNaN(value)
 		? String(value)
 		: "";
