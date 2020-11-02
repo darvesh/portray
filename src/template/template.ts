@@ -29,7 +29,7 @@ export const generateHTML = (
                 font-family: FiraCode;
                 src: url("${
 					pathToFileURL(
-						resolve(__dirname + "/../resources/Firacode.ttf")
+						resolve(__dirname + "/../../resources/Firacode.ttf")
 					).href
 				}") format("truetype"); 
             }

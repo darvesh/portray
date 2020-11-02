@@ -1,15 +1,16 @@
 {
 	"name": "@darvesh/portray",
-	"version": "0.5.2",
+	"version": "0.5.3",
 	"description": "Generate beautiful image from your source code",
-	"main": "index.js",
+	"main": "build/index.js",
 	"scripts": {
 		"test": "mocha -t 2000 --reporter spec --require ts-node/register 'test/**/*.test.ts'",
-		"build": "tsc && copyfiles -f ./src/resources/**/* ./build/resources",
-		"pre-publish": "npm run build && copyfiles package.json package-lock.json README.md build"
+		"build": "tsc",
+		"prepublish": "npm run build && npm publish --access-public"
 	},
 	"author": "Darvesh",
 	"license": "MIT",
+	"files": ["build", "resources"],
 	"dependencies": {
 		"highlight.js": "^10.3.1"
 	},
@@ -22,7 +23,6 @@
 		"@typescript-eslint/parser": "^4.5.0",
 		"chai": "^4.2.0",
 		"chai-as-promised": "^7.1.1",
-		"copyfiles": "^2.4.0",
 		"eslint": "^7.12.0",
 		"eslint-config-prettier": "^6.14.0",
 		"eslint-plugin-prettier": "^3.1.4",
