@@ -3,7 +3,7 @@
 </p>
 
 
-> Generate beautiful image from your source code :night_with_stars :night_with_stars:
+> Generate beautiful image from your source code :night_with_stars:
 
 <br/>
 
@@ -23,16 +23,19 @@
 ## Install
 
 ```sh
-$ npm install <yet-to-decide>
+$ npm install @darvesh/portray
 ```
 
 ## Usage
 
 ```TypeScript
-import { generate } from "portray";
+import { generate } from "@darvesh/portray";
 
 generate(testOnecontent)
-  .then(buffer => fs.promises.writeFile("./image.jpeg", buffer))
+  .then(buffer => {
+    if(buffer instanceof Buffer) 
+      return fs.promises.writeFile("./image.jpeg", buffer);
+  })
   .then(() => console.log("Image saved"))
   .catch(console.error)
 
@@ -40,6 +43,7 @@ generate(testOnecontent)
 
 ```TypeScript
 import { generate } from "portray";
+import { Readable } from "stream";
 
 const options = {
   borderColor: "#90FE13",
@@ -52,8 +56,10 @@ const options = {
 
 generate(testOnecontent, options)
   .then(stream => {
-    const image = fs.createWriteStream("./image.png");
-    stream.pipe(image); 
+    if(stream instanceof Readable){
+      const image = fs.createWriteStream("./image.png");
+      stream.pipe(image); 
+    }
   })
   .catch(console.error)
 
@@ -87,11 +93,22 @@ generate(testOnecontent, options)
 > **Default**: `"dracula"`\
 > **Refer**: [ThemesType](https://github.com/darvesh/portray/blob/master/src/template/cssTheme.ts)
 
-**`windowControl: 0 | 1 | 2 | 3`**
+**`windowControl?: 0 | 1 | 2 | 3`**
 > **Default**: 1\
 > 0 if you don't want windowControl 
-<div>
-  1. <img src="./files/windowControl1.png" height="30px" width="60px" alt="1"/> <br/>
-  2. <img src="./files/windowControl2.png" height="30px" width="60px" alt="2"/> <br/>
-  3. <img src="./files/windowControl3.png" height="30px" width="60px" alt="3"/> <br/>
+<div style="display: flex;">
+  <span style="margin-left: 10px;"> 
+    1. <img src="./files/windowControl1.png" height="25px" width="50px" alt="1"/> 
+  </span>
+  <span style="margin-left: 10px;"> 
+    2. <img src="./files/windowControl2.png" height="25px" width="50px" alt="2"/>
+  </span>
+  <span style="margin-left: 10px;"> 
+    3. <img src="./files/windowControl3.png" height="25px" width="50px" alt="3"/> 
+  </span>
 </div>
+<br/>
+<hr/>
+
+## Credits
+Thanks to [Muthu](https://github.com/mkrhere), [Thomas](https://github.com/trgwii) and [Ceda](https://github.com/cedaei)
