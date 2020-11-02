@@ -64,6 +64,9 @@ generate(code, options)
   .catch(console.error)
 
 ```
+## Output
+<img src="https://img.techpowerup.org/201102/default.jpg"/>
+<br /><br />
 
 ## Options
 
