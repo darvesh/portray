@@ -5,7 +5,6 @@
 		"incremental": true,
 		"preserveConstEnums": true,
 		"outDir": "build",
-		"sourceMap": true,
 		"strict": true,
 		"esModuleInterop": true,
 		"target": "ES2019",
