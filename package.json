@@ -1,6 +1,6 @@
 {
 	"name": "@darvesh/portray",
-	"version": "0.5.3",
+	"version": "0.5.4",
 	"description": "Generate beautiful image from your source code",
 	"main": "build/index.js",
 	"scripts": {

@@ -36,7 +36,11 @@ export const generate = async (
 		? Themes[options.theme]
 		: Themes[defaultValues.theme];
 	const html = generateHTML(highlightedCode, css, templateOption);
-	const image = generateImage(html, { format: imageFormat, quality: 100 });
+	const image = generateImage(html, {
+		format: imageFormat,
+		quality: 100,
+		enableLocalFileAccess: true
+	});
 	if (options.stream) return image;
 	return accumulateBuffer(image);
 };
