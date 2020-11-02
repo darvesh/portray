@@ -39,7 +39,7 @@ describe("E2E: compare images with previously generated images", () => {
 	});
 	it("return type stream", async () => {
 		const image = await generate(testOnecontent, {
-			type: "stream"
+			stream: true
 		});
 		if (!(image instanceof Readable)) {
 			throw new Error("doesn't returm stream");
@@ -58,8 +58,8 @@ describe("E2E: compare images with previously generated images", () => {
 			format: "png",
 			language: "javascript",
 			theme: "nord",
-			type: "stream",
-			windowControl: 1
+			stream: true,
+			windowControl: 2
 		});
 		const buffer = await accumulateBuffer(stream as Readable);
 		if (Buffer.compare(originalImage, buffer) !== 0) {

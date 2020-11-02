@@ -1,10 +1,10 @@
 import type { Readable } from "stream";
+import type { Options } from "./types/types";
 
 import { extname } from "path";
 import { defaultValues } from "./constant";
 import { generateHTML } from "./template/template";
 import { getWindowControls } from "./template/windowControls";
-import { Options } from "./types/types";
 import { generateImage } from "./generateImage";
 import { Themes } from "./template/cssTheme";
 import {
@@ -37,5 +37,6 @@ export const generate = async (
 		: Themes[defaultValues.theme];
 	const html = generateHTML(highlightedCode, css, templateOption);
 	const image = generateImage(html, { format: imageFormat, quality: 100 });
-	return options.type === "stream" ? image : accumulateBuffer(image);
+	if (options.stream) return image;
+	return accumulateBuffer(image);
 };

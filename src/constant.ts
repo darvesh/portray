@@ -1,11 +1,11 @@
 import type { Options } from "./types/types";
 import { resolve } from "path";
 
-type ignore = ["type", "language"];
+type ignore = ["stream", "language"];
 type DefaultValues = Readonly<Required<Omit<Options, ignore[number]>>>;
 export const defaultValues: DefaultValues = {
 	fontPath: resolve(__dirname + "/resources/Firacode.ttf"),
-	windowControl: 0,
+	windowControl: 1,
 	fontSize: 25,
 	theme: "dracula",
 	borderColor: "#ABB8C3",

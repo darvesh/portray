@@ -4,6 +4,7 @@
  */
 
 import { defaultValues } from "../constant";
+import { Options } from "../types/types";
 
 const Controls = `
 <svg xmlns="http://www.w3.org/2000/svg" width="81" height="21" viewBox="0 0 54 14">
@@ -33,8 +34,10 @@ const ControlsBoxy = `
     <path d="M1 7H11" stroke="#878787" strokeLinecap="round" strokeLinejoin="round" />
 </svg>`;
 
-const WindowControls = [Controls, ControlsBW, ControlsBoxy];
+const Empty = "";
+
+const WindowControls = [Empty, Controls, ControlsBW, ControlsBoxy];
 
 export const getWindowControls = (
-	num: 0 | 1 | 2 = defaultValues.windowControl
+	num: Options["windowControl"] = defaultValues.windowControl
 ): string => WindowControls[num];
