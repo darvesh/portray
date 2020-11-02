@@ -4,7 +4,7 @@
 	"description": "Generate beautiful image from your source code",
 	"main": "index.js",
 	"scripts": {
-		"test": "mocha -t 2000 --reporter spec --require ts-node/register 'src/test/**/*.test.ts'",
+		"test": "mocha -t 2000 --reporter spec --require ts-node/register 'test/**/*.test.ts'",
 		"build": "tsc && copyfiles -f ./src/resources/**/* ./build/resources",
 		"pre-publish": "npm run build && copyfiles package.json package-lock.json README.md build"
 	},

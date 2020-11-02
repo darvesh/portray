@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { cleanKey, addPrefix, serializeOptions } from "../generateImage";
+import { cleanKey, addPrefix, serializeOptions } from "../src/generateImage";
 
 describe("wkhtmltoimage wrapper", () => {
 	describe("cleanKey", () => {

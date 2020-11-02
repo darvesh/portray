@@ -1,8 +1,8 @@
 import { readFileSync } from "fs";
 import { resolve } from "path";
 import { Readable } from "stream";
-import { accumulateBuffer } from "../helper";
-import { generate } from "../index";
+import { accumulateBuffer } from "../src/helper";
+import { generate } from "../src/index";
 import { testOnecontent } from "./files/content";
 
 describe("E2E: compare images with previously generated images", () => {
@@ -53,7 +53,7 @@ describe("E2E: compare images with previously generated images", () => {
 		const stream = await generate(testOnecontent, {
 			borderColor: "#90FE13",
 			borderSize: 70,
-			fontPath: resolve("./src/test/files/iosevka.ttf"),
+			fontPath: resolve(__dirname + "/files/iosevka.ttf"),
 			fontSize: 18,
 			format: "png",
 			language: "javascript",
