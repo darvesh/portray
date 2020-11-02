@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./files/logo.png" alt="Portray"/>
+  <img src="https://img.techpowerup.org/201102/logo402.png" alt="Portray"/>
 </p>
 
 
@@ -42,7 +42,7 @@ generate(testOnecontent)
 ```
 
 ```TypeScript
-import { generate } from "portray";
+import { generate } from "@darvesh/portray";
 import { Readable } from "stream";
 
 const options = {
@@ -98,13 +98,13 @@ generate(testOnecontent, options)
 > 0 if you don't want windowControl 
 <div style="display: flex;">
   <span style="margin-left: 10px;"> 
-    1. <img src="./files/windowControl1.png" height="25px" width="50px" alt="1"/> 
+    1. <img src="https://img.techpowerup.org/201102/windowcontrol1.png" height="25px" width="50px" alt="1"/> 
   </span>
   <span style="margin-left: 10px;"> 
-    2. <img src="./files/windowControl2.png" height="25px" width="50px" alt="2"/>
+    2. <img src="https://img.techpowerup.org/201102/windowcontrol2.png" height="25px" width="50px" alt="2"/>
   </span>
   <span style="margin-left: 10px;"> 
-    3. <img src="./files/windowControl3.png" height="25px" width="50px" alt="3"/> 
+    3. <img src="https://img.techpowerup.org/201102/windowcontrol3.png" height="25px" width="50px" alt="3"/> 
   </span>
 </div>
 <br/>
