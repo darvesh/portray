@@ -111,4 +111,4 @@ generate(testOnecontent, options)
 <hr/>
 
 ## Credits
-Thanks to [Muthu](https://github.com/mkrhere), [Thomas](https://github.com/trgwii) and [Ceda](https://github.com/cedaei)
+Thanks to [Muthu](https://github.com/mkrhere), [Thomas](https://github.com/trgwii) and [Ceda](https://github.com/ceda-ei)
