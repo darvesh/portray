@@ -31,7 +31,7 @@ $ npm install @darvesh/portray
 ```TypeScript
 import { generate } from "@darvesh/portray";
 
-generate(testOnecontent)
+generate(code)
   .then(buffer => {
     if(buffer instanceof Buffer) 
       return fs.promises.writeFile("./image.jpeg", buffer);
@@ -54,7 +54,7 @@ const options = {
   windowControl: 1
 }
 
-generate(testOnecontent, options)
+generate(code, options)
   .then(stream => {
     if(stream instanceof Readable){
       const image = fs.createWriteStream("./image.png");
