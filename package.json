@@ -6,11 +6,14 @@
 	"scripts": {
 		"test": "mocha -t 2000 --reporter spec --require ts-node/register 'test/**/*.test.ts'",
 		"build": "tsc",
-		"prepublish": "npm run build && npm publish --access-public"
+		"pre-publish": "npm run build && npm publish --access-public"
 	},
 	"author": "Darvesh",
 	"license": "MIT",
-	"files": ["build", "resources"],
+	"files": [
+		"build",
+		"resources"
+	],
 	"dependencies": {
 		"highlight.js": "^10.3.1"
 	},
