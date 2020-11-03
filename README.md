@@ -17,7 +17,7 @@
   $ pacman -S wkhtmltopdf #archlinux
   $ dnf install wkhtmltopdf #fedora, centos, opensuse
   ```
-  If you are on windows, download the binary the above mentioned website, install it, and add it to PATH.
+  If you are on windows, download the binary from aforementioned website, install it, and add it to PATH.
 
 
 ## Install
